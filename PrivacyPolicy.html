@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CosmeticaLab - Privacy Policy</title>
+    <style>
+        :root { color-scheme: light dark; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #1d1d1f;
+            background: #ffffff;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 30px 60px;
+        }
+        @media (prefers-color-scheme: dark) {
+            body { color: #f5f5f7; background: #1d1d1f; }
+            a { color: #6bb8ff; }
+            h1, h2, h3 { color: #f5f5f7; }
+        }
+        h1 { font-size: 28px; font-weight: 700; margin: 0 0 8px; }
+        h2 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; }
+        p { margin: 10px 0; }
+        ul { padding-left: 24px; margin: 10px 0; }
+        li { margin: 6px 0; }
+        .updated { font-size: 13px; color: #86868b; margin: 0 0 28px; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: April 29, 2026</p>
+
+    <p>CosmeticaLab is a cosmetic formulation app developed by CosmeticaLab. We believe your data belongs to you and have designed the app accordingly. This policy explains what data the app handles and how.</p>
+
+    <h2>Data Storage</h2>
+    <p>All formulation data, ingredients, recipes, photos, and preferences are stored locally on your device using Apple's SwiftData framework. CosmeticaLab does not operate any servers and does not transmit your data to CosmeticaLab or any third party for storage or processing.</p>
+    <p>For trade-secret formulations, an optional per-formulation encryption layer is available. When enabled, the formulation contents are encrypted at rest with AES-256-GCM and a key derived via PBKDF2-HMAC-SHA512 (600,000 iterations) from a passphrase you choose. The passphrase is never stored — only its derived key material is held in the system Keychain while the formulation is unlocked. If you forget the passphrase, the formulation cannot be recovered.</p>
+
+    <h2>iCloud Sync</h2>
+    <p>If you choose to enable iCloud sync in Preferences, your data is synced across your devices using Apple's CloudKit private database. This means your data is stored in your personal iCloud account, encrypted and managed by Apple under their <a href="https://www.apple.com/legal/privacy/">privacy policy</a>. CosmeticaLab has no access to your iCloud data. iCloud sync is entirely optional and disabled by default.</p>
+
+    <h2>AI Assistant (Optional)</h2>
+    <p>CosmeticaLab includes an optional AI assistant feature that is disabled by default. If you choose to enable it, you must provide your own API key for one of the supported providers:</p>
+    <ul>
+        <li>Anthropic (Claude)</li>
+        <li>OpenAI (ChatGPT)</li>
+        <li>Mistral</li>
+    </ul>
+    <p>When you use the AI assistant, your current formulation data (ingredients, percentages, notes) is sent to the selected provider's API to generate a response. This data is transmitted directly from your device to the provider's servers. CosmeticaLab does not relay, store, or have access to these communications. Please review the privacy policy of your chosen AI provider for details on how they handle API requests.</p>
+    <p>Your API keys are stored securely in the system Keychain on your device. They are never included in backups and are never transmitted to anyone other than the respective API provider.</p>
+
+    <h2>PubMed Search (Optional)</h2>
+    <p>CosmeticaLab can search the PubMed scientific literature database operated by the National Center for Biotechnology Information (NCBI). When you use this feature, search queries are sent directly from your device to NCBI's public E-utilities API. No personal data is included in these requests beyond the search terms you enter. CosmeticaLab identifies itself as the requesting application per NCBI's usage guidelines.</p>
+    <p>You may optionally configure an NCBI API key in Preferences to raise NCBI's per-second rate limit. If you do, the key is stored securely in the system Keychain on your device, is never included in backups, and is sent only to NCBI as part of your search requests.</p>
+
+    <h2>PubChem Lookup (Optional)</h2>
+    <p>CosmeticaLab can retrieve chemical data (molecular formula, molecular weight, 2D structure images, density, solubility, and LogP values) from the PubChem database operated by NCBI. When you use this feature, requests containing ingredient names or CAS numbers are sent directly from your device to PubChem's public PUG REST and PUG View APIs. Retrieved data is cached locally on your device to reduce repeat requests. No personal data is included in these requests.</p>
+
+    <h2>No Analytics or Tracking</h2>
+    <p>CosmeticaLab does not send analytics, usage statistics, crash reports, or diagnostic data to CosmeticaLab or any third party. The app does not contain any third-party tracking SDKs, advertising frameworks, or fingerprinting code. We have no way of knowing how you use the app or what data you create.</p>
+    <p>The Formulation Wizard keeps local counters (such as "how many drafts you have generated") in order to show you your own usage in the Playground's Stats view. These counters never leave your device, contain no information about your ingredients or recipes, and can be cleared at any time with the Reset button in that view.</p>
+
+    <h2>No Personal Data Collection</h2>
+    <p>CosmeticaLab does not ask for, collect, or store any personal information such as your name, email address, location, or device identifiers. The app does not require an account or login of any kind.</p>
+
+    <h2>Local Backups</h2>
+    <p>The app creates automatic daily backups of your database stored locally on your device. Manual backups are exported as JSON files that you save to a location of your choosing. These files remain entirely under your control.</p>
+
+    <h2>Network Access</h2>
+    <p>CosmeticaLab only connects to the internet for the following purposes, all of which require your explicit action or opt-in:</p>
+    <ul>
+        <li>iCloud sync (if enabled in Preferences)</li>
+        <li>AI assistant API calls (if enabled and configured with your API key)</li>
+        <li>PubMed search queries (when you initiate a search)</li>
+        <li>PubChem data lookups (when you initiate a lookup)</li>
+    </ul>
+    <p>The app makes no background network requests and does not contact any CosmeticaLab servers at any time.</p>
+
+    <h2>Data Deletion</h2>
+    <p>Since all your data is stored locally on your device (and optionally in your personal iCloud account), you have full control over it at all times. You can delete individual formulations, ingredients, or recipes within the app. To delete all app data, you can remove the app from your device, which deletes all locally stored data including automatic backups. If you have enabled iCloud sync, you can remove the synced data through your iCloud account settings.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>CosmeticaLab is a professional tool and does not target or knowingly collect information from children.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If this privacy policy is updated, the revised version will be included in the app update. The "Last updated" date at the top of this page will be changed accordingly.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this privacy policy, please contact us at <a href="mailto:contact@cosmeticalab.app">contact@cosmeticalab.app</a>.</p>
+</body>
+</html>
