@@ -1,6 +1,6 @@
 # CosmeticaLab
 
-Professional cosmetic formulation, perfumery, and soap making — all in one native app. One-time purchase. No subscription. Your data stays on your device.
+Cosmetic formulation, perfumery, and soap making for artisan DIY creators — No more Excel spreadsheets, no more messy notes—everything neatly organized in one app. Your data stays on your device.
 
 
 CosmeticaLab is the professional workstation for cosmetic formulators, perfumers, and soap makers. Built as a native macOS and iPadOS app, it delivers the performance and reliability you expect from a desktop-class tool — with seamless iCloud sync across all your devices.
