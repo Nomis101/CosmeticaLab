@@ -39,3 +39,6 @@ Your formulations are your intellectual property. All data stays on your device.
 · Global search across all modules
 
 One-time purchase. No subscription. No feature gating.
+
+CosmeticaLab can be downloaded from the Mac App Store: 
+https://apps.apple.com/de/app/cosmeticalab/id6767542324?mt=12
