@@ -27,68 +27,94 @@
         ul { padding-left: 24px; margin: 10px 0; }
         li { margin: 6px 0; }
         .updated { font-size: 13px; color: #86868b; margin: 0 0 28px; }
+        .scope { font-size: 13px; color: #86868b; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: April 29, 2026</p>
+    <p class="updated">Last updated: November 17, 2026</p>
 
-    <p>CosmeticaLab is a cosmetic formulation app developed by CosmeticaLab. We believe your data belongs to you and have designed the app accordingly. This policy explains what data the app handles and how.</p>
+    <p>This privacy policy applies to both apps by CosmeticaLab:</p>
+    <ul>
+        <li><strong>CosmeticaLab</strong> for Mac and iPad</li>
+        <li><strong>CosmeticaLab Light</strong> for iPhone</li>
+    </ul>
+    <p>Both are tools for cosmetic formulation, perfumery and soap making. We believe your data belongs to you and have designed both apps accordingly. In this policy, "the app" means either app. Where a feature exists in only one of them, this is stated.</p>
 
     <h2>Data Storage</h2>
-    <p>All formulation data, ingredients, recipes, photos, and preferences are stored locally on your device using Apple's SwiftData framework. CosmeticaLab does not operate any servers and does not transmit your data to CosmeticaLab or any third party for storage or processing.</p>
-    <p>For trade-secret formulations, an optional per-formulation encryption layer is available. When enabled, the formulation contents are encrypted at rest with AES-256-GCM and a key derived via PBKDF2-HMAC-SHA512 (600,000 iterations) from a passphrase you choose. The passphrase is never stored — only its derived key material is held in the system Keychain while the formulation is unlocked. If you forget the passphrase, the formulation cannot be recovered.</p>
+    <p>All formulations, ingredients, recipes, photos, accounting and market data, and preferences are stored locally on your device using Apple's SwiftData framework. CosmeticaLab does not operate any servers and does not transmit your data to CosmeticaLab or any third party for storage or processing.</p>
+    <p>For trade-secret formulations, an optional per-formulation encryption layer is available. When enabled, the formulation contents are encrypted at rest with AES-256-GCM and a key derived via PBKDF2-HMAC-SHA512 (600,000 iterations) from a passphrase you choose. The passphrase is never stored; only its derived key material is held in the system Keychain while the formulation is unlocked. If you forget the passphrase, the formulation cannot be recovered.</p>
+    <p>If you turn on the optional app lock, its password is stored only as a hash in the system Keychain on your device.</p>
 
-    <h2>iCloud Sync</h2>
-    <p>If you choose to enable iCloud sync in Preferences, your data is synced across your devices using Apple's CloudKit private database. This means your data is stored in your personal iCloud account, encrypted and managed by Apple under their <a href="https://www.apple.com/legal/privacy/">privacy policy</a>. CosmeticaLab has no access to your iCloud data. iCloud sync is entirely optional and disabled by default.</p>
+    <h2>iCloud Sync (Optional)</h2>
+    <p>If you choose to enable iCloud sync in the settings, your data is synced across your devices using Apple's CloudKit private database. CosmeticaLab and CosmeticaLab Light use the same iCloud container, so data you create in one app can appear in the other on devices signed in to the same Apple Account. Your data is stored in your personal iCloud account, encrypted and managed by Apple under their <a href="https://www.apple.com/legal/privacy/">privacy policy</a>. CosmeticaLab has no access to your iCloud data. iCloud sync is entirely optional and disabled by default.</p>
+    <p>PDF documents and safety data sheets attached in the app are never synced; they stay on the device where you added them.</p>
 
-    <h2>AI Assistant (Optional)</h2>
-    <p>CosmeticaLab includes an optional AI assistant feature that is disabled by default. If you choose to enable it, you must provide your own API key for one of the supported providers:</p>
+    <h2>Camera, Photos and Label Scanner</h2>
+    <p>The camera is used only when you start it yourself: to scan QR codes that contain formulation data, and in the Label Scanner (iPhone and iPad) to photograph the ingredient list or barcode on a product package. You can also choose a photo from your library.</p>
+    <p>Ingredient lists are read entirely on your device using Apple's Vision text recognition. Photos are not uploaded anywhere and are not saved by the Label Scanner: the photo, the recognized text and the result are discarded when you close the scanner. The scanner keeps no history.</p>
+    <p>The app saves an image to your photo library only when you choose to save a formulation's QR code. It requests only permission to add photos, not to read your library.</p>
+
+    <h2>Barcode Lookup (Optional, iPhone and iPad)</h2>
+    <p>When you scan or type a product barcode in the Label Scanner, the app looks up the product's ingredient list in the Open Beauty Facts database, operated by the non-profit Open Food Facts association. The request goes directly from your device to the Open Food Facts servers (world.openfoodfacts.org) and contains only the barcode number. It does not contain photos, your formulations or any personal information. As with any internet request, the server receives your device's IP address; please see the <a href="https://world.openfoodfacts.org/privacy">Open Food Facts privacy policy</a> for how they handle requests. Results are kept in memory for a few minutes only to avoid repeated requests and are not stored.</p>
+    <p>Store-internal codes and coupon codes are recognized and never looked up. The lookup happens only when you scan or enter a barcode yourself.</p>
+
+    <h2>PubChem Lookup (Optional)</h2>
+    <p>The app can retrieve chemical data (molecular formula, molecular weight, structure images, density, solubility and LogP values) from the PubChem database operated by the U.S. National Center for Biotechnology Information (NCBI). When you use this feature, requests containing ingredient names, CAS numbers or PubChem identifiers are sent directly from your device to PubChem's public PUG REST and PUG View APIs. Retrieved data is stored locally on your device to avoid repeat requests. No personal data is included in these requests.</p>
+    <p>Lookups run when you start one, or, if you turn on automatic PubChem updates in the settings (off by default), when you open an ingredient that is missing this data.</p>
+
+    <h2>AI Assistant (Optional, CosmeticaLab for Mac and iPad only)</h2>
+    <p>CosmeticaLab includes an optional AI assistant that is disabled by default. CosmeticaLab Light does not include this feature. If you choose to enable it, you must provide your own API key for one of the supported providers:</p>
     <ul>
         <li>Anthropic (Claude)</li>
         <li>OpenAI (ChatGPT)</li>
         <li>Mistral</li>
     </ul>
-    <p>When you use the AI assistant, your current formulation data (ingredients, percentages, notes) is sent to the selected provider's API to generate a response. This data is transmitted directly from your device to the provider's servers. CosmeticaLab does not relay, store, or have access to these communications. Please review the privacy policy of your chosen AI provider for details on how they handle API requests.</p>
+    <p>When you use the AI assistant, your current formulation data (ingredients, percentages, notes) is sent to the selected provider's API to generate a response. Formulations marked as secret are never sent. This data is transmitted directly from your device to the provider's servers. CosmeticaLab does not relay, store or have access to these communications. Please review the privacy policy of your chosen AI provider for details on how they handle API requests.</p>
     <p>Your API keys are stored securely in the system Keychain on your device. They are never included in backups and are never transmitted to anyone other than the respective API provider.</p>
 
-    <h2>PubMed Search (Optional)</h2>
-    <p>CosmeticaLab can search the PubMed scientific literature database operated by the National Center for Biotechnology Information (NCBI). When you use this feature, search queries are sent directly from your device to NCBI's public E-utilities API. No personal data is included in these requests beyond the search terms you enter. CosmeticaLab identifies itself as the requesting application per NCBI's usage guidelines.</p>
-    <p>You may optionally configure an NCBI API key in Preferences to raise NCBI's per-second rate limit. If you do, the key is stored securely in the system Keychain on your device, is never included in backups, and is sent only to NCBI as part of your search requests.</p>
-
-    <h2>PubChem Lookup (Optional)</h2>
-    <p>CosmeticaLab can retrieve chemical data (molecular formula, molecular weight, 2D structure images, density, solubility, and LogP values) from the PubChem database operated by NCBI. When you use this feature, requests containing ingredient names or CAS numbers are sent directly from your device to PubChem's public PUG REST and PUG View APIs. Retrieved data is cached locally on your device to reduce repeat requests. No personal data is included in these requests.</p>
+    <h2>PubMed Search (Optional, CosmeticaLab for Mac and iPad only)</h2>
+    <p>CosmeticaLab can search the PubMed scientific literature database operated by NCBI. CosmeticaLab Light does not include this feature. When you use it, your search terms are sent directly from your device to NCBI's public E-utilities API. No personal data is included in these requests beyond the search terms you enter. CosmeticaLab identifies itself as the requesting application per NCBI's usage guidelines.</p>
+    <p>You may optionally enter an NCBI API key in the settings to raise NCBI's request limit. If you do, the key is stored securely in the system Keychain on your device, is never included in backups and is sent only to NCBI as part of your search requests.</p>
 
     <h2>No Analytics or Tracking</h2>
-    <p>CosmeticaLab does not send analytics, usage statistics, crash reports, or diagnostic data to CosmeticaLab or any third party. The app does not contain any third-party tracking SDKs, advertising frameworks, or fingerprinting code. We have no way of knowing how you use the app or what data you create.</p>
-    <p>The Formulation Wizard keeps local counters (such as "how many drafts you have generated") in order to show you your own usage in the Playground's Stats view. These counters never leave your device, contain no information about your ingredients or recipes, and can be cleared at any time with the Reset button in that view.</p>
+    <p>The app does not send analytics, usage statistics or diagnostic data to CosmeticaLab or any third party. It does not contain any third-party tracking SDKs, advertising frameworks or fingerprinting code. We have no way of knowing how you use the app or what data you create.</p>
+    <p>The Formulation Wizard keeps local counters (such as how many drafts you have generated) to show you your own usage. These counters never leave your device, contain no information about your ingredients or recipes, and can be reset at any time.</p>
+
+    <h2>Crash Reports</h2>
+    <p>If the app crashes, it can store a technical crash report locally on your device using Apple's MetricKit framework. These reports contain technical information about the crash (for example the app version, device model, operating system version and the code location of the crash), not your formulations or personal information. They are never sent automatically. You can view a report in the app and, if you choose, send it to us by email; in that case we receive the report and the email address you send it from, and use both only to investigate and fix the problem.</p>
+    <p>Separately, if you have agreed in your device settings to share analytics with app developers, Apple may provide us with anonymized crash data under Apple's own privacy policy.</p>
 
     <h2>No Personal Data Collection</h2>
-    <p>CosmeticaLab does not ask for, collect, or store any personal information such as your name, email address, location, or device identifiers. The app does not require an account or login of any kind.</p>
+    <p>The app does not ask for, collect or store personal information such as your name, email address, location or device identifiers. No account or login is required. Company details you may enter for labels, documents or market sales (such as a company name or address) stay on your device, and in your iCloud account if you enable sync.</p>
 
-    <h2>Local Backups</h2>
-    <p>The app creates automatic daily backups of your database stored locally on your device. Manual backups are exported as JSON files that you save to a location of your choosing. These files remain entirely under your control.</p>
+    <h2>Notifications</h2>
+    <p>Lab timers use local notifications that are scheduled on your device only. The app asks for permission the first time you start a timer. No push notification service is used. Timers for secret formulations do not show formulation details in notifications.</p>
+
+    <h2>Backups</h2>
+    <p>The app creates automatic daily backups of your database and stores them locally on your device. Manual backups and shared formulations are exported as backup files that you save or share to a location of your choosing. These files remain entirely under your control.</p>
 
     <h2>Network Access</h2>
-    <p>CosmeticaLab only connects to the internet for the following purposes, all of which require your explicit action or opt-in:</p>
+    <p>The app connects to the internet only for the following purposes, all of which require your action or opt-in:</p>
     <ul>
-        <li>iCloud sync (if enabled in Preferences)</li>
-        <li>AI assistant API calls (if enabled and configured with your API key)</li>
-        <li>PubMed search queries (when you initiate a search)</li>
-        <li>PubChem data lookups (when you initiate a lookup)</li>
+        <li>iCloud sync (if enabled), both apps</li>
+        <li>PubChem data lookups (when you start a lookup, or when automatic updates are enabled), both apps</li>
+        <li>Barcode lookups in Open Beauty Facts (when you scan or enter a barcode), CosmeticaLab Light and CosmeticaLab for iPad</li>
+        <li>AI assistant requests (if enabled and configured with your API key), CosmeticaLab for Mac and iPad only</li>
+        <li>PubMed searches (when you start a search), CosmeticaLab for Mac and iPad only</li>
     </ul>
-    <p>The app makes no background network requests and does not contact any CosmeticaLab servers at any time.</p>
+    <p>Links to external websites (for example regulatory authorities or literature references) open in your web browser only when you tap or click them. The app does not contact any CosmeticaLab servers at any time.</p>
 
     <h2>Data Deletion</h2>
-    <p>Since all your data is stored locally on your device (and optionally in your personal iCloud account), you have full control over it at all times. You can delete individual formulations, ingredients, or recipes within the app. To delete all app data, you can remove the app from your device, which deletes all locally stored data including automatic backups. If you have enabled iCloud sync, you can remove the synced data through your iCloud account settings.</p>
+    <p>Since all your data is stored locally on your device (and optionally in your personal iCloud account), you have full control over it at all times. You can delete individual items within the app. To delete all app data from a device, remove the app, which deletes all locally stored data including automatic backups. If you have enabled iCloud sync, you can remove the synced data through your iCloud account settings.</p>
 
     <h2>Children's Privacy</h2>
-    <p>CosmeticaLab is a professional tool and does not target or knowingly collect information from children.</p>
+    <p>CosmeticaLab and CosmeticaLab Light are professional tools and are not directed at children. They do not knowingly collect information from children.</p>
 
     <h2>Changes to This Policy</h2>
-    <p>If this privacy policy is updated, the revised version will be included in the app update. The "Last updated" date at the top of this page will be changed accordingly.</p>
+    <p>If this privacy policy is updated, the revised version will be published on this page and the "Last updated" date at the top will be changed accordingly.</p>
 
     <h2>Contact</h2>
     <p>If you have questions about this privacy policy, please contact us at <a href="mailto:contact@cosmeticalab.app">contact@cosmeticalab.app</a>.</p>
